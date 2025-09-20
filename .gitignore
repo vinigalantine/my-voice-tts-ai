@@ -1,0 +1,23 @@
+# Python envs and local config
+.venv/
+.env
+venv/
+__pycache__/
+*.pyc
+
+# Data / large binaries (DO NOT commit raw audio or processed wavs)
+data/
+
+# Models & exports
+models/checkpoints/
+models/exports/
+
+# Docker / build
+.dockerignore
+docker/
+
+# IDE / notebook cruft
+.vscode/
+.ipynb_checkpoints/
+.DS_Store
+.gitattributes

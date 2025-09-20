@@ -1,0 +1,20 @@
+# Core TTS framework
+TTS
+
+# Audio processing
+librosa
+soundfile
+pydub
+
+# Text utils
+num2words
+unidecode
+
+# Notebook / tooling
+jupyterlab
+notebook
+tqdm
+rich
+
+# ONNX runtime for export/testing
+onnxruntime
