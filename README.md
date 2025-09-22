@@ -94,8 +94,37 @@ pip install -r requirements.txt
 Planned Repository layout
 -----------------
 - data/                  - training data, outputs... data 😬
+	- raw/recordings/
+
+		Purpose: put your original recorded WAVs here (one sentence per file if possible).
+		Why: original files are your source of truth. Keep them untouched so you can reprocess if needed.
+
+	- processed/wavs/
+	
+		Purpose: processed, trimmed, resampled, 	normalized WAVs ready for training.
+		Why: training needs consistent audio (sample rate, mono, bit depth, trimmed silence). Processing separates raw capture from training-ready data.
+
+	- processed/metadata.csv (LJSpeech-style)
+
+		Purpose: map audio filenames to their transcriptions and (optionally) speaker id.
+		Why: training code needs to know the exact text for each audio file. A single CSV line per utterance is standard and minimal.
+	
+	- samples/ or outputs/
+
+		Purpose: small generated examples (inference outputs), diagnostics, exported test WAVs.
+		Why: keeps generated/audio artifacts separate from raw/processed training data.
+
+	- recording_support
+		
+		Purpose: store files to help on the recording (e.g., a "recording script" with phrases and texts)
+		Why: so we have a better experience recording the material.
+		
 - notebooks/             - Jupyter notebooks for each stage (audit, processing, training, export)
 - models/                - downloaded base models, checkpoints, exports
+	- checkpoints/ and exports/
+
+		Purpose: store training checkpoints and final exported models (ONNX, TorchScript).
+		Why: keep models versioned and separate; these are large and should be ignored by Git or tracked with DVC/LFS.
 - scripts/               - helper scripts (segmentation, normalization, export)
 - docker/                - Docker files for reproducible dev environment
 - requirements.txt       - pinned Python dependencies for venv or Docker

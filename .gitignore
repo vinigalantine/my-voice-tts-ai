@@ -6,7 +6,12 @@ __pycache__/
 *.pyc
 
 # Data / large binaries (DO NOT commit raw audio or processed wavs)
-data/
+data/raw/
+data/interim/
+data/processed/wavs/
+data/samples/
+data/outputs/
+!data/processed/metadata.csv
 
 # Models & exports
 models/checkpoints/
