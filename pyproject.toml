@@ -1,0 +1,9 @@
+[tool.ruff]
+select = ["E", "F", "W", "I", "B", "C"]
+extend-ignore = ["E203", "E501"]
+
+[tool.black]
+target-version = ["py311"]
+
+[tool.nbqa]
+# nbqa uses underlying tools; no settings required here
